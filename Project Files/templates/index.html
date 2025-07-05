@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><center>Traffic Volume Estimation</center></title>
+    <style>
+        body {
+            background-image: url("/static/traffic_pic.jpg");
+            background-size: 400px;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            margin: 50px auto;
+            width: 60%;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            margin-top: 25px;
+            padding: 10px;
+            width: 100%;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Traffic Volume Estimation</h1>
+
+        <form action="/predict" method="post">
+            <label for="holiday">Holiday:</label>
+            <select name="holiday" id="holiday" required>
+                <option value="7">None</option>
+                <option value="1">Columbus Day</option>
+                <option value="10">Veterans Day</option>
+                <option value="9">Thanksgiving Day</option>
+                <option value="8">Christmas Day</option>
+                <option value="6">New Year's Day</option>
+                <option value="11">Washington's Birthday</option>
+                <option value="5">Memorial Day</option>
+                <option value="2">Independence Day</option>
+                <option value="12">State Fair</option>
+                <option value="3">Labor Day</option>
+                <option value="4">Martin Luther King Jr Day</option>
+            </select>
+
+            <label for="temp">Temperature:</label>
+            <input type="number" name="temp" id="temp" step="0.01" required>
+
+            <label for="rain">Rain:</label>
+            <input type="number" name="rain" id="rain" step="0.01" required>
+
+            <label for="snow">Snow:</label>
+            <input type="number" name="snow" id="snow" step="0.01" required>
+
+            <label for="weather">Weather:</label>
+            <select name="weather" id="weather" required>
+                <option value="0">Clear</option>
+                <option value="1">Clouds</option>
+                <option value="2">Drizzle</option>
+                <option value="3">Fog</option>
+                <option value="4">Haze</option>
+                <option value="5">Mist</option>
+                <option value="6">Rain</option>
+                <option value="7">Smoke</option>
+                <option value="8">Snow</option>
+                <option value="9">Squall</option>
+                <option value="10">Thunderstorm</option>
+            </select>
+
+            <label for="date">Date:</label>
+            <input type="date" name="date" id="date" required>
+
+            <label for="Time">Time:</label>
+            <input type="time" name="Time" id="Time" required>
+
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
+
